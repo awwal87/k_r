@@ -14,8 +14,8 @@ int main(void) {
 	lenArr[0] = 0;
 	while ((status = getln(line, lenArr, MAXCHARS)) != '\n') {
 		printf("%s", line);
-		putchar(status);
 		len += lenArr[0];
+		putchar(status);
 	}
 	len += lenArr[0];
 	if (status == '\n') printf("%s[%d characters]\n", line, len);
@@ -52,6 +52,7 @@ char getln(char s[], int lenArr[], int lim) {
 			++i;
 		}
 	}
+	else ++i;
 	lenArr[0] = i;
 	return c;
 }
