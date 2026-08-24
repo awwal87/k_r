@@ -11,15 +11,14 @@ int getBlanks(char blanksbuffer[], int lim);
 
 int main(void) {
 	int loop, c, retVal;
-	int prevChar, lastChar;
+	int lastChar;
 	int nonEmptyLine;
 	char blanksBuffer[MAX_BLANKS];
 	loop = 1;
-	retVal = prevChar = nonEmptyLine = 0;
+	retVal = nonEmptyLine = 0;
 
 	while (loop) {
-		c = getchar(); // ingest characters
-
+		c = getchar();
 		// put c in an array and trigger whitespace handling function if whitespace
 		if (c == ' ' || c == '\t') {
 			blanksBuffer[0] = c;
@@ -54,23 +53,16 @@ int main(void) {
 			putchar(c);
 			nonEmptyLine = 1;
 		}
-		prevChar = c;
 	}
-	printf("%d\n", retVal);
-	int i;
-	for (i = 0; i < retVal; ++i) {
-		printf("%d\n", blanksBuffer[i]);
-	}
-	printf("%d\n", blanksBuffer[i]);
 
 	return 0;
 }
 
 int getBlanks(char blanksBuffer[], int lim) {
 	int i, c;
-	for (i = 1; i < lim - 1 && (c = getchar()) != EOF && c != '\n' && (c == ' ' || c == '\t'); ++i)
+	for (i = 1; i < lim - 1 && (c = getchar()) != EOF && (c == ' ' || c == '\t'); ++i)
 		blanksBuffer[i] = c;
-	if (c == '\n' || c != EOF) {
+	if (c != EOF) {
 		blanksBuffer[i] = c;
 		++i;
 	}

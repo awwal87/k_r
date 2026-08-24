@@ -1,7 +1,12 @@
 #include <stdio.h> 
 
 int main(void) {
-	char c = '\0';
-	printf("'%c' '%d'\n", 119, c);
+	int c;
+	while ((c = getchar()) != EOF) {
+		if (c == '1') {
+			c = EOF;
+		}
+		else putchar(c);
+	}
 	return 0;
 }
