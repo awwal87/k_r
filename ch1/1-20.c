@@ -7,7 +7,7 @@
 
 #include <stdio.h>
 
-#define MAX_CHARS 21
+#define MAX_CHARS 11
 #define TABSTOP 4
 
 char line[MAX_CHARS];
@@ -53,10 +53,6 @@ void detab(void) {
 				putchar('.');
 				++column;
 			}
-		}
-		if (line[i] == '\n') {
-			putchar('\n');
-			column = 0;
 		}
 		else {
 			putchar(line[i]);
